@@ -1,5 +1,5 @@
 # React-Web-Worker
-An example solution to demonstrate using a Web Worker to fetch, parse, and store data in a React App.
+An example approach for Web Workers to fetch fake data in an ejected create-react-app solution.
 
 ## Prerequisites
 In order to add your own custom loader to CRA's Webpack configuration, you must eject your application. Don't be afraid of doing this, you can always download and eject future releases of CRA to update your existing ejected application with new features/changes.
