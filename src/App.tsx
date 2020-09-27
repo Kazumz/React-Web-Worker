@@ -1,8 +1,8 @@
 import React from 'react';
 
-import PokemonWorker from './WebWorkers/Workers/pokemon.worker';
+import DedicatedWorker from './WebWorkers/Workers/dedicated-worker-example.worker';
 import createWorker from './WebWorkers/worker-utils';
-import IPokemon from './Interfaces/IPokemon';
+import IExampleInterface from './Interfaces/IExampleInterface';
 import logo from './logo.svg';
 
 import './App.css';
@@ -11,9 +11,10 @@ const App: React.FC = () => {
   React.useEffect(
     () => {
       // Instantiate the Web Worker.
-      const worker = createWorker<{}, ReadonlyArray<IPokemon>>(PokemonWorker);
+      const worker = createWorker<{}, ReadonlyArray<IExampleInterface>>(DedicatedWorker);
 
       // Fire the promise in the Web Worker and hook in to .then().
+      // Check Chrome Dev Tools > Sources for the running worker.
       worker.perform()
         .then(data => {
           console.log(JSON.stringify(data));
