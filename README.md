@@ -7,4 +7,6 @@ In order to achieve this, we must use a promised based mechanism to ask the work
 
 Another important thing to bear in mind is that Web Workers are COMPLETELY seperate applications to your React Application, so have zero context of where the instruction has come from; this effectively means you're not able to access information in your React App from your Worker.
 
+To encourage code reuse, we can use a 'worker-loader' in Webpack to create our Web Worker bundles using our code base alongside our React App bundle. This means you can also 'import' and reuse existing functions in your codebase in your Web Worker files.
+
 https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers
