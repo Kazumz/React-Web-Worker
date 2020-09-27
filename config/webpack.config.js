@@ -359,6 +359,17 @@ module.exports = function(webpackEnv) {
                 name: 'static/media/[name].[hash:8].[ext]',
               },
             },
+            {
+              test: /\.worker\.ts$/,
+              include: paths.appSrc,
+              use: [
+                {
+                  loader: require.resolve('workerize-loader'),
+                  options: { inline: true }
+                },
+                require.resolve('babel-loader')
+              ]
+            },
             // Process application JS with Babel.
             // The preset includes JSX, Flow, TypeScript, and some ESnext features.
             {
@@ -369,7 +380,14 @@ module.exports = function(webpackEnv) {
                 customize: require.resolve(
                   'babel-preset-react-app/webpack-overrides'
                 ),
-                
+                // presets: [
+                //   [
+                //       "env",
+                //       {
+                //           modules: false,
+                //       },
+                //   ],
+                // ],
                 plugins: [
                   [
                     require.resolve('babel-plugin-named-asset-import'),
